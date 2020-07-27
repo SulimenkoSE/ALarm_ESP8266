@@ -1,8 +1,8 @@
 #include "Setting_All.h"
 
 Wifi_Router wifi_iD_router = {
-	 "Nina_Iot",
-	 "Sergik9876632",
+	 "AAAAAAA",
+	 "12345648798",
 	 {10, 128, 10, 47},
 	 {10, 128, 10, 1},
 	 {255, 255, 255, 0},
@@ -10,7 +10,7 @@ Wifi_Router wifi_iD_router = {
 
 Wifi_Ap wifi_id_AP = {
 	 "ESP_TERM",
-	 "Sergik9876632",
+	 "1234567898",
 	 {10, 128, 128, 1},
 	 {10, 128, 128, 1},
 	 {255, 255, 255, 0},
