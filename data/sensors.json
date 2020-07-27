@@ -1,0 +1,23 @@
+[
+    {"id_zona": 0, 
+    "name": "GARAG",
+        "sensors": [
+            {"id_sensor": 0, "name": "DOOR"," Pin_": 14, "sensorStartALarm": 0, "statusAlarm": 0},
+            {"id_sensor": 1, "name": "GATE", "Pin_": 14, "sensorStartALarm": 0, "statusAlarm": 0}],
+        "Alarm": {"start": 0, "ALarms": 0}
+    },
+    {"id_zona": 1, 
+    "name": "HOME",
+        "sensors": [
+            {"id_sensor": 0, "name": "DOOR"," Pin_": 14, "sensorStartALarm": 0, "statusAlarm": 0},
+            {"id_sensor": 1, "name": "GATE", "Pin_": 14, "sensorStartALarm": 0, "statusAlarm": 0}],
+        "Alarm": {"start": 0, "ALarms": 0}
+    },
+    {"id_zona": 2, 
+    "name": "GARDEN",
+        "sensors": [
+            {"id_sensor": 0, "name": "DOOR"," Pin_": 14, "sensorStartALarm": 0, "statusAlarm": 0},
+            {"id_sensor": 1, "name": "GATE", "Pin_": 14, "sensorStartALarm": 0, "statusAlarm": 0}],
+        "Alarm": {"start": 0, "ALarms": 0}
+    }
+]

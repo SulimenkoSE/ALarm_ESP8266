@@ -1,0 +1,11 @@
+{
+  "SSDP": "ESP8266_1",
+  "ssidAP": "ESP8266_01",
+  "passwordAP": "Sergik9876632",
+  "ssid": "Nina_Iot",
+  "password": "Sergik9876632",
+  "timezone": 3,
+  "t0_min": 26.00,
+  "t1_min": 5.00,
+  "t_timer": 20000
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="/zons_function.js"></script> 
+<title>Зоны</title>
+<style>
+   h1{
+        text-shadow: -5px -4px 3px #999;
+     }
+   div.block{
+          /*margin: 15px;  внешний отступ */
+          /*padding: 11px;  внутренний отступ */
+          /*border: 3px solid red;  границы шириной в 3 пикселя сплошной красной линией */
+          margin-top: 30px; /* отступ сверху */
+          margin-left: 25px; /* отступ слева */
+          margin-right: 20px; /* отступ справа */
+          margin-bottom: 15px; /* отступ снизу */
+                 
+          border: 3px solid red; /* граница */
+          border-radius: 30px;
+          background-color: #ff0507; /*background-color: устанавливает цвет фона*/
+      }
+    #outer{
+                 
+                /*width: 250px;
+                height: 150px;
+                margin: 10px;                         margin: 15px;  внешний отступ */
+                /*margin-top: 30px;  отступ сверху */
+                /*margin-left: 25px;  отступ слева */
+                /*margin-right: 20px;  отступ справа */
+                /*margin-bottom: 15px;  отступ снизу */
+                
+                padding: 10px;                        /*padding: 11px;  внутренний отступ */
+                border: 5px solid #ccc;
+                background-color: #eee;
+                box-shadow: 10px 4px 10px 3px #888; /*Свойство box-shadow позволяет создать у элемента тень.*/
+                
+                
+                box-sizing: content-box; /*при определении размеров блока к свойствам width и height 
+                будут добавляться толщина границы, а также внутренние и внешние отступы, box-sizing: border-box*/
+                
+               /*background-image: url(/img/swathes1.png);*/
+                
+              }
+      #inner{
+                 
+                height: 50px;
+                background-color:blue;
+            }
+      #imaged{
+            background-image: url(http://localhost.com/img/swathes.png);
+        }
+      #box {
+          width: 350px;
+          height: 50px;
+          border: 1px solid black;
+          padding: 2px 4px;
+          overflow-y: scroll;
+          overflow-x: auto;
+          /*<div class="box">
+            <div><strong>Log:</strong></div>
+            <div class="log">
+            </div>
+          </div>  */
+        }
+        
+      #log {
+          margin-top: 8px;
+          font-family: monospace;
+        }
+      #header{ 
+                background-color: #ccc;
+            }
+      #menu{
+                float: left;
+                width: 250px;
+            }
+      #sidebar{
+                  background-color: #ddd;
+                  float: left;
+                  width: 150px;
+              }
+      #main{
+                background-color: #eee;
+                height: 200px;
+                margin-left: 170px; /* 150px (ширина сайдбара) + 10px + 10px (2 отступа) */
+                margin-bottom: 5px;
+            }
+      #footer{
+            border-top: 1px solid #ccc;
+            clear: both;
+            background-image: radial-gradient(white, black);
+            background-image: -moz-radial-gradient(white, black);
+            background-image: -webkit-radial-gradient(white, black);
+        }
+      #alert {
+            padding: 15px;
+            border: 1px solid #d6e9c6;
+            border-radius: 4px;
+            color: #3c763d;
+            background-color: #dff0d8;
+          }
+          #container {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background: yellow;
+          }
+          #animate {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background: red;
+          }
+    table {
+            border: 1px solid #ccc;
+            border-spacing: 3px;
+        }
+         
+        caption {
+         
+            font-weight: bold;
+        }
+         
+        td, th{
+            border: solid 1px #ccc;
+        }
+        
+        /*ADC Value is            : <span id="ADCValue">0</span><br>
+              Режим насоса            : <span id="NasosaStatus">NA</span><br>
+            	Внешнее включение насоса: <span id="Activation_Sensor_Status">NA</span><br>
+            	Температура воды        : <span id="Temp_0">NA</span><br>
+            	Температура воздуха     : <span id="Temp_1">NA</span><br>*/
+</style>
+
+<body onload="funonload();">
+   <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+   <div class="container">
+    <div class="row" style="text-align:center;">
+      <h1 class="alert-info" id="ssdp_t" onmouseover="style.color='red'" onmouseout="style.color='black'">{{SSDP}}</h1>
+      <div class=block id="demo">
+        <button type="button" onclick="sendData(1)">NASOS ON</button>
+      	<button id="SST" type="button" onclick="loadConfigs()">NASOS OFF</button><BR>
+      	<input id="txt">
+        <input id="btn" button type="button" value="нажмите" onclick="foo()"><BR>
+        
+        <button id="btn_2" type="button" onclick="testPromise()">Создать Promise! </button>
+        <div id="log"></div>
+      </div>
+      
+      
+    </div>
+     
+     <div id="header">
+       <div id="sidebar">
+          <h1>ESP8266</h1>
+          <div id="menu">
+                <ul>
+                    <li><a class="btn btn-block btn-danger" href="/">Главная</a></li>
+                    <li><a class="btn btn-block btn-danger" href="/device.htm">Настройки</a></li>
+                    <li><a class="btn btn-block btn-danger" href="/edit.htm">Редактор</a></li>
+                </ul>
+            </div>
+        </div>
+        
+      <div id="main">
+        <select id="zona_name" onchange="change_myselect(this.value)">
+          <option value="">Выберите зону действия сигнализации:</option>
+        </select>
+            
+        <script>
+          loadNameZons();
+        </script>
+          
+        <p id="demo_2"></p>
+        <p id="demo_3"></p>
+        <p id="demo_4"></p>
+        <div class="outer" >
+          <p id = "table_main" ></p>
+        </div>
+        <div id="Editor_zons">
+          <button id="btn_3" type="button" onclick="testPromise()">Добавить зону</button>
+          <button id="btn_4" type="button" onclick="testPromise()">Удалить зону</button>
+          <button id="btn_3" type="button" onclick="testPromise()">Добавить датчик</button>
+          <button id="btn_4" type="button" onclick="testPromise()">Удалить датчик</button>
+        </div>
+        
+      </div>
+      <script>
+        let div = document.createElement('div');
+        div.className = "alert";
+        div.innerHTML = "<strong>Всем привет!</strong> Вы прочитали важное сообщение.";
+      
+        document.body.append(div);
+        setTimeout(() => div.remove(), 1000);
+      </script>
+     </div>
+        
+    <div id="footer">Copyright © MyCorp. 2020
+        
+ </div>
+  </div>
+</body>
+</html>
