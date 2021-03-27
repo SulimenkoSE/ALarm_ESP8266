@@ -13,8 +13,8 @@ Wifi_Ap wifi_default = {
 
 #if WIFI_ROUTER
 Wifi_Router wifi_iD_router = {
-	 "Nina_Iot",
-	 "Sergik9876632",
+	 "*******",
+	 "********************************",
 	 {10, 128, 10, 47},
 	 {10, 128, 10, 1},
 	 {255, 255, 255, 0},
@@ -22,7 +22,7 @@ Wifi_Router wifi_iD_router = {
 #else
 Wifi_Ap wifi_ip_AP = {
 	 "ESP_TERM",
-	 "Sergik9876632",
+	 "********************************",
 	 {10, 128, 128, 1},
 	 {10, 128, 128, 1},
 	 {255, 255, 255, 0},
